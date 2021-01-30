@@ -1,0 +1,37 @@
+User:
+	_id
+	Eigene Anleitungen: List<Manual>
+//	Saved Manuals
+
+Manual:
+	_id
+	Title
+	Subtitle
+//	ShareUrl if not private
+	private oder nicht private
+	BildUrl
+	List<Steps>
+
+Step:
+	Title
+	Subtitle
+	BildUrl
+
+
+GET
+/manual/:id --> Manual
+/manuals/own --> All own manuals
+// /manuals/saved --> All saved manuals
+// /manual/:id/save
+
+/profile --> Own user profile
+/profile/:user_id --> User profile of specific user
+
+
+PUT
+/manuals --> Manual wird erstellt
+
+// POST
+// /register
+// /login
+
