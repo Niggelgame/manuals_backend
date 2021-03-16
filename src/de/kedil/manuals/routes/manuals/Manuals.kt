@@ -71,6 +71,8 @@ fun Routing.manuals() {
 
             Manuals.repositories.manualCollection.insertOne(manual)
 
+            user.addManual(manual.manualId)
+
             context.respond(HttpStatusCode.Created, manual)
         }
     }

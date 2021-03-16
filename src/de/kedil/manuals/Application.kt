@@ -3,6 +3,7 @@ package de.kedil.manuals
 import de.kedil.manuals.config.Config
 import de.kedil.manuals.models.Manual
 import de.kedil.manuals.models.User
+import de.kedil.manuals.routes.manuals.manuals
 import de.kedil.manuals.routes.profile.profile
 import de.kedil.manuals.util.errorHandler
 import firebase
@@ -57,6 +58,7 @@ object Manuals {
 
         routing {
             profile()
+            manuals()
         }
     }
 }

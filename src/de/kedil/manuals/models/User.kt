@@ -19,9 +19,15 @@ suspend fun User.toFullUser(): FullUser {
     return FullUser(firebaseUserId = firebaseUserId, ownManuals = manuals)
 }
 
-suspend fun User.toPublicUser() : FullUser{
-    val manuals = Manuals.repositories.manualCollection.find(and(Manual::manualId `in` ownManuals,Manual::private eq false)).toList()
+suspend fun User.toPublicUser(): FullUser {
+    val manuals =
+        Manuals.repositories.manualCollection.find(and(Manual::manualId `in` ownManuals, Manual::private eq false))
+            .toList()
     return FullUser(firebaseUserId = firebaseUserId, ownManuals = manuals)
+}
+
+suspend fun User.addManual(manualId: Id<Manual>) {
+    Manuals.repositories.userCollection.save(User(firebaseUserId, (ownManuals + manualId)))
 }
 
 @Serializable
